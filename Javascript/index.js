@@ -8,35 +8,37 @@ let a = 5;
 // var v = 4;  in var we can redeclare and reinitize the value
 // console.log(a)
 
-//DataTypes in Javascript
+//DataTypes in Javascript there are total 8 datatypes in javascript
 //1. Number = interger,float
 
 let x = 5;
 x= 1.1;
 
-//2. String = "" , ''
+//2.BigInt
+
+//3. String = "" , ''
 let name = "rakshya";
 
-//3.Boolean = true/false
+//4.Boolean = true/false
 
 let b = true;
 
 
-//4. Undefined 
+//5. Undefined 
 
 let c ;
 
-//5. Null
+//6. Null
 let d = null
 
-//6. Object = array,object,date
+//7. Object = array,object,date
 
 let obj = {name :"rakshya",address :"shankhamul"}
 let array = [1,"abc",'rakshya']
 let date = new Date()
 console.log(date)
 
-//7. Symbol
+//8. Symbol
 
 let sum = "a" + 123 +2;
 sum =  123 +2 +"a" 
