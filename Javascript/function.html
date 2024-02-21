@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 style="text-align: center;">Function in javascript</h1>
+    <script>
+        /*
+        There are 6 ways to create a function in JavaScript
+        1.Named Function also called Traditional Function 
+        function newFunction(){
+           document.write("This is the named function also called as traditional function")
+        }
+        2.Anonymous Function is a function without the name,used a function expression or argument
+        const greet = function(name){
+            document.write("this is the Anonymous function made by ${name}")
+        }
+        
+        3.Arrow Function is introduce in es6 , shorter syntax and also called one-lined function
+        const arrowFunction = ()=> document.write("<h2> Eaxmple of arrow function</h2>")
+        4.Constructor Function  not necessary used in oop opeartion
+        5.IIFE(Immediately invoked Function Expression) is a function that is executed immediately after their creation.used to create the privatescope and avoid the polluting the global namespace
+        (
+            function (){
+                document.write("<h2> This is the example of iife function</h2>")
+            }
+        ) ();
+        6.Higher Order Function are the function that takes the function as a argument or return a function Example of higher of higher order function are map(),filter(),reduce()
+        let arr = [10,20,30]
+        arr.map((item)=>item+1);
+        document.write("<h2> +arr</h2>")
+        */
+        function newFunction(){
+           document.write("<h2>This is the named function also called as traditional function</h2>")
+        }
+        newFunction()
+        const greet = function(name){
+            document.write(`<h2>this is the Anonymous function made by  ${name}</h2>`)
+        }
+        greet("Rakshya")
+        const arrowFunction = ()=> document.write("<h2> Eaxmple of arrow function</h2>")
+        arrowFunction();
+        (
+            function (){
+                document.write("<h2> This is the example of iife function</h2>")
+            }
+        )();
+
+        let arr = [10,20,30]
+        let newArray =  arr.map((item)=>item+1);
+        document.write(newArray)
+    </script>
+    
+</body>
+</html>

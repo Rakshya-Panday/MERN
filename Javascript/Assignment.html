@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assignment</title>
+  </head>
+  <body>
+    <h1 style="text-align: center">Assignment 1</h1>
+
+    <script>
+      let continueOperations = true;
+
+      while (continueOperations) {
+        let num1 = parseFloat(prompt("Enter the first number:"));
+        let num2 = parseFloat(prompt("Enter the second number:"));
+        let opeartions = prompt("Enter the operation (addition, subtraction, product, division):");
+        let result;
+        switch (opeartions) {
+          case "addition":
+            result = num1 + num2;
+            alert(`Sum of two number  = ${result}`);
+            break;
+          case "subtraction":
+            result = num1 - num2;
+            alert(`Differnce of two number = ${result}`);
+            break;
+          case "product":
+            result = num1 * num2;
+            alert(`Product of two number  = ${result}`);
+            break;
+          case "division":
+            if (num2 !== 0) {
+              result = num1 / num2;
+              alert(`Division of two number  = ${result}`);
+            } else {
+              alert("Number cannot be divided by zero");
+            }
+            break;
+          default:
+            alert("Choose the valid opeartions");
+        }
+
+        let continueInput = prompt("Do you want to perform another operation? (yes/no)");
+
+        if (continueInput !== "yes") {
+          continueOperations = false;
+          alert("Exit from the program");
+        }
+      }
+    </script>
+  </body>
+</html>

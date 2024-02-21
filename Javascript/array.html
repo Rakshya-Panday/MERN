@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a ={
+            name:"roshan"
+        }
+        let arr = ["rakshya","ram","kathmandu",[1,2,3],a.name,"patan"]
+        
+        
+        document.write("Length of the array is " +arr.length+"<br>")
+        document.write(arr + "<br>")
+        document .write("POP the array = " +arr.pop()+"<br>") //remove the last element from the array
+        //  let push = arr.push(7)
+        document .write("push the array:"+arr.push(7)+"<br>")
+        document.write(arr + "<br>") //remove the last element from the array
+
+        let shift = arr.shift()// shift is used to remove first element from the array
+        document.write("<br>The element after the shift is  : " + shift)
+        let unshift = arr.unshift("panday") // add the new element at the first index
+        document.write("<br>The element after the unshift is  : " + unshift)
+        document.write( "<br>"+arr + "<br>")
+
+        let splice = arr.splice(1,0,[1,2,3]) // splice is used to add or remove the element in array .It takes three argument(startIndex,deletedindex,newElement) if we dont want to delete then we use 0 as a index otherwise use the index of deleted items
+
+        document.write( "<br>"+arr + "<br>")
+
+        let slice = arr.slice(2,5) // slice is used to make new array after existing array but the slice takes doesnot takes the last index of the real array.
+        document.write("<br>New array after the slice is "+slice)
+        let newSlice = arr.slice(-4,-2) //negative index takes the element from the last of the arrays
+        document.write("<br>New array after the slice is "+newSlice)
+
+
+
+        let num = [1,4,6,111,,3,4,,444,6,8]
+        let sort =  num.sort()
+        // document.write(sort);
+    </script>
+</body>
+</html>
