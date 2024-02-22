@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice-Game</title>
+</head>
+<body>
+    <h1>Dice Game </h1>
+
+   <div style="display: flex;">
+    <img src="" alt="dices" id = person1 height="500px" width="500px" />
+    <img src="" alt="dices" id = person2 height="500px" width="500px"/>
+   </div>
+
+    <script>
+        let dices = [
+
+        "../images/dice1.png",
+        "../images/dice2.png",
+        "../images/dice3.png",
+        "../images/dice4.png",
+        "../images/dice5.png",
+         "../images/dice6.png"
+        ]
+
+        let person1 = Math.floor(Math.random()*6)
+
+         let dice1 = document.getElementById("person1").src = dices[person1]
+
+        let person2 = Math.floor(Math.random()*6)
+         let dice2 = document.getElementById("person2").src = dices[person2]
+
+         if(dice1>dice2){
+            document.write("<h1>Person1 is winner</h1>")
+         }
+         else{
+            document.write("<h1>Person2 is winner</h1>")
+         }
+    </script>
+    
+</body>
+</html>
