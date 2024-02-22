@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>String in javascript</h1>
+    <script>
+        let information = "   hello this the class taken from mr kishor sir" 
+        document.write("<br>"+information)
+        document.write("<br>The length of the string is "+information.length)
+        document.write("<br>The length of the string after trim is "+information.trim().length)
+        document.write("<br>The length of the string after trim from start is "+information.trimStart().length)
+        document.write("<br>The length of the string after trim from end is "+information.trimEnd().length)
+        document.write("<br>"+information[information.length-1])
+
+
+        //slice - to create a new string from existing string
+        let newString = information.slice(14,25)
+        document.write("<br>New String after slice is = "+ newString)
+
+        document.write("<br>"+information)
+
+         newString = information.slice(-14,-4)
+        document.write("<br>New String after slice is = "+ newString)
+
+        //substring is same as slice but doesnot take negative value
+        newString = information.substring(10,4);
+        document.write("<br>New String after subString is = "+ newString)
+
+        newString = information.substring(-10,-4);
+       document.write("<br>New String after subString is = "+ newString)
+
+       newString = information.replace("hello","Hi")
+       document.write("<br>"+newString)
+
+        
+    </script>
+</body>
+</html>

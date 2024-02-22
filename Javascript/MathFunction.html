@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math-function</title>
+</head>
+<body>
+    <script>
+        document.write("<br>"+Math.PI)
+        document.write("<br>"+Math.sqrt(7));
+        document.write("<br>"+Math.pow(5,3))
+        document.write("<br>"+Math.sin(90))
+
+        let r = Math.random()
+        document.write("<br>"+r)
+        document.write("<br>"+Math.trunc(r))
+        document.write("<br>"+Math.floor(r))
+        document.write("<br>"+Math.ceil(r))
+        document.write("<br>"+Math.round(r))
+
+        curr = r.toFixed(2); //toFixed gives fixed number after decimal
+        document.write("<br>"+curr)
+
+        wt = r.toPrecision(4) // toPrecision gives toatal 3 digits  with decimal
+        document.write("<br>"+ wt)
+    </script>
+</body>
+</html>

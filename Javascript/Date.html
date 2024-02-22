@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id = "timer"></h1>
+    <script>
+        let today = new Date()
+        document.write(today)
+        document.write("<br>"+ today.toDateString())
+        document.write("<br>"+today.toTimeString())
+        document.write("<br>"+today.toLocaleDateString())
+        document.write("<br>"+today.toLocaleDateString())
+
+        document.write("<br>"+today.getFullYear())
+        document.write("<br>"+today.getMonth())
+        document.write("<br>"+today.getDate())
+        document.write("<br>"+today.getDay())
+
+        document.write("<br>"+today.getHours())
+        document.write("<br>"+today.getMinutes())
+        document.write("<br>"+today.getSeconds())
+        document.write("<br>"+today.getMilliseconds())
+
+setInterval(()=>{
+    let today = new Date()
+    document.getElementById("timer").innerText = today.toLocaleTimeString()
+},1000)
+    </script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Methods</title>
+</head>
+<body>
+    <h1>Array Methods</h1>
+    <script>
+    /*
+      There are different kinds of methods or loop in javascript
+      1.for loop
+      2.while loop
+      3.do-while loop
+      4.for-in loop is main used for object which takes the key pair value
+       let details = {
+    name:"rakshya",
+    address : "kathmandu"
+   }
+   for (const item in details) {
+      document.write(details[item])
+    
+   }
+      5.for of loop is used for array is same as for in loop 
+      for (const list of fruits) {
+    document.write("\n")
+    document.write("\n <br>"+list)
+    
+   }
+      6.for each loop
+      7.map
+      8.filter
+      9.find
+      10.findIndex
+      9.reducer takes two argument accumulator and current mainly it is used to add,subtract,multiple,divide the element inside the array.
+    */
+   let fruits = ["apple","banana","mango","orange"];
+   let details = {
+    name:"rakshya",
+    address : "kathmandu"
+   }
+   for (const item in details) {
+      document.write(details[item])
+    
+   }
+
+   for (const list of fruits) {
+    document.write("\n")
+    document.write("\n <br>"+list)
+    
+   }
+
+   fruits.forEach((item)=>{
+    document.write("<li>"+item+"</li>")
+   })
+
+   fruits.map((item)=>{
+    document.write("The list of fruits in upper case<li>"+item.toUpperCase()+"</li>")
+   })
+
+    let newFruits = fruits.filter((item)=>item.match('app'))
+    document.write(newFruits)
+     newFruits = fruits.find((item)=>item.match('app'))
+    document.write("<br>"+newFruits)
+    newFruits = fruits.findIndex((item)=>item.match('app'))
+    document.write("<br>"+newFruits)
+
+    newFruits = fruits.reduce(((accumulator,current)=>{
+        document.write("<br> accumulator = "+accumulator+"\ncurrent = "+current)
+    }))
+
+    let num = [1,4,6,8,9,10,45];
+     let newNum = num.reduce(((accumulator,current)=>{
+        document.write("<br> accumulator = "+accumulator+"\ncurrent = "+current+ "return\n"+(accumulator+current))
+        return accumulator-current
+    }))
+    document.write("<br>"+newNum)
+    </script>
+    
+</body>
+</html>
