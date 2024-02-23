@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Local Storage</h1>
+    <script>
+        //setItem is used to add the data to localstorage.
+        localStorage.setItem("name","rakshya")
+        localStorage.setItem("phone",987654325)
+
+        let person = {
+            college : "patan multiple campus",
+            address : "patandhoka"
+        }
+        localStorage.setItem("person",JSON.stringify(person))
+
+        //for retrieve the value from localStorage
+
+        let name = localStorage.getItem("name")
+        document.write("<h1>Name :"+name+"</h1>")
+
+        let phone =Number(localStorage.getItem("phone"))
+        document.write("<h1> PhoneNumber :" +phone+"</h1>" +typeof(phone))
+
+        let details = JSON.parse(localStorage.getItem("person"))
+        document.write("<h1>Details of the person is " +details.college+"</h1>")
+
+        //for remove the specific data from the localstorage we use localStorage.removeItem("name") and clear is used to remove all the data store in localStorage
+
+        localStorage.removeItem("name")
+        localStorage.clear()
+    </script>
+</body>
+</html>

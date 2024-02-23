@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Asynchronous Function</h1>
+    <script>
+
+      let fruits = ["apple", "orange"];
+      const addFruits_async = (new_fruits) => {
+        setTimeout(() => {
+          fruits.push(new_fruits);
+        }, 4000);
+      };
+
+
+      const add_fruits_promise = (new_fruits)=>{
+        return new Promise((resolve,reject)=>{
+            let error = false
+            if(!error){
+                fruits.push(new_fruits)
+                resolve()
+            }
+            else{
+                reject("failed to add fruits")
+            }
+        })
+      }
+
+      addFruits_async("mango");
+
+      //There are 3 ways to reolve the problems.
+      //1.callback function
+      //2.Promises - .then .catch
+                // - async await
+
+            //    async function greet(){
+
+            //     document.write("hello")
+
+            //     }
+            //     greet()
+
+    const greet = async ()=>{
+         await document.write("hello worlds")
+    }
+    greet()
+
+
+    </script>
+  </body>
+</html>
