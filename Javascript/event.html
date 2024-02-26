@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event</title>
+</head>
+<body>
+
+    <!-- 
+        Events in javascript
+        mouse = click,mousehover,mouseenter,mouseleave
+        keyboard = keypressed,keyup,keydown
+        textbox = focus,change,blur
+        form = submit
+     -->
+    <h1>Event in javascript</h1>
+    
+           <input type="password" id = "password">
+          <!-- <button id="show">Show Password</button>
+          <button id="hide">Hide Password</button> -->
+          <button id="btn">Show</button>
+    <script>
+        // let password = document.getElementById("password")
+        // let show = document.getElementById("show")
+        // let hide = document.getElementById("hide")
+        // const  showPassword = ()=>{
+        //     password.setAttribute("type","text")
+            
+        // }
+        // const hidePasword = ()=>{
+        //     password.setAttribute("type","password")
+        // }
+        // show.addEventListener("click",showPassword)
+        // hide.addEventListener("click",hidePasword) 
+
+        
+       let input = document.getElementById("password") 
+       let showHide = document.getElementById("btn")
+        let input_state = "pwd"
+        const showHidePassword = ()=>{
+            if(input_state ==="pwd"){
+                input_state = "txt"
+                input.setAttribute("type","text")
+                showHide.innerHTML = "Hide"
+
+            }
+            else{
+                input_state = "pwd"
+                input.setAttribute("type","password")
+                showHide.innerHTML = "Show"
+            }
+
+        }
+        showHide.addEventListener("click",showHidePassword)
+    </script>
+    
+</body>
+</html>

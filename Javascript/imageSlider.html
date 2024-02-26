@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+    <style>
+        .container{
+            height: 450px;
+            width: 50%;
+            background-color: blue;
+            margin: auto;
+            position: relative;
+        }
+        .container img{
+            height: 100%;
+            width: 100%;
+        }
+        #prev, #next{
+            position: absolute;
+            top: 45%;
+        }
+        #prev{
+            left: 0;
+        }
+        #next{
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="" alt="" id = "slider">
+        <button id="prev">LEFT</button>
+        <button id="next">RIGHT</button>
+        <script>
+            let images = [
+            "images/dice1.png","images/dice2.png","images/dice3.png","images/dice4.png","images/dice5.png"
+            ]
+            let index = 0
+            let image = document.getElementById("slider")
+            let left = document.getElementById("prev")
+            let right = document.getElementById("next")
+           image.src = images[index]
+            const next = ()=>{
+                index ++
+                if(index>= images.length){
+                    index = 0;
+                }
+                image.src = images[index]
+            }
+
+            const prev = ()=>{
+                if(index<=0){
+                    index = images.length;
+                }
+                index--;
+                image.src = images[index]
+            }
+            left.addEventListener("click",prev)
+            right.addEventListener("click",next)
+            setInterval(next,3000)
+        </script>
+    </div>
+    
+</body>
+</html>
