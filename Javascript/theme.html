@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mode change</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+</head>
+<body id="body">
+    <h1>Theme Changer</h1>
+    <span id="mode">Light<i class="bi bi-toogle-off"></i>Drak </span>
+     <script>
+        let body = document.getElementById("body")
+        let btn = document.getElementById("mode")
+
+        let  mode = "light";
+        const darkLightMode = ()=>{
+            if(mode=="light"){
+                body.style.backgroundColor = "black"
+                mode = "dark"
+                body.style.color = "white"
+                btn.innerHTML = 'Light<i class="bi bi-toogle-on"></i>Drak '
+            }
+            else{
+                mode = "light"
+                body.style.backgroundColor= "white"
+                body.style.color = "black"
+                btn.innerHTML = 'Light<i class="bi bi-toogle-off"></i>Drak '
+            }
+        }
+        btn.addEventListener("click",darkLightMode)
+     </script>
+    
+</body>
+</html>

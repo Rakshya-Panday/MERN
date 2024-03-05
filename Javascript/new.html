@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toggle Button</title>
+  <!-- Include Font Awesome CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    /* Add some basic styling for the toggle button */
+    .toggle {
+      cursor: pointer;
+     font-size: 30px;
+    }
+  </style>
+</head>
+<body>
+
+
+  <!-- Toggle Button -->
+  <div class="toggle" onclick="toggleState()">
+    <i id="toggleIcon" class="fas fa-toggle-off"></i>
+  </div>
+
+  <script>
+    let toggleIcon = document.getElementById("toggleIcon")
+    let dark = document.body
+      
+      const darkMode = ()=>{
+           dark.style.backgroundColor = "white"
+      }
+      const lightMode = ()=>{
+         let light = document.body.style.backgroundColor = "black"
+      }
+     
+      
+      toggleIcon.addEventListener("click",darkMode)
+    
+  </script>
+</body>
+</html>
