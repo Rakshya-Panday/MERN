@@ -4,8 +4,9 @@ import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <>
-      <div className="flex justify-between h-20 items-center">
-        <h2 className="font-semibold text-3xl px-8">onlineStore</h2>
+      <div className="flex justify-evenly  h-20 items-center">
+        <h2 className="font-semibold text-4xl px-8">online<span className="text-blue-900">Store</span></h2>
+        
         
         <div class="w-full md:w-1/3 mx-auto  items-center ">
           <div class="relative">
@@ -20,15 +21,15 @@ const Header = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-3 gap-x-4  pr-6 text-4xl ">
-          <button><Link to = './login'><i class="bi bi-person-circle "></i></Link></button>
+        <div className="grid grid-cols-3 gap-x-4  pr-6 text-2xl ">
+          <button>Login<Link to = './login'><i class="bi bi-person-circle "></i></Link></button>
           <button><Link to = './register'><i class="bi bi-person-fill-add "></i></Link></button>
-          <button>
-            <i class="bi bi-cart "></i>
-          </button>
+          
         </div>
       </div>
-      <div className="list-none flex justify-evenly bg-blue-300 w-full h-20 items-center text-2xl font-bold ">
+      <hr />
+      <div className="list-none flex justify-start bg-blue-800 text-white w-full h-20 items-center text-2xl font-bold ">
+     
         <li className="hover:text-white">
           <Link to="./">Home</Link>
         </li>
@@ -41,7 +42,11 @@ const Header = () => {
         <li className="hover:text-white">
           <Link to="/services">Services</Link>
         </li>
+        <button>
+            <i class="bi bi-cart "></i>
+          </button>
       </div>
+      <hr />
     </>
   );
 };
