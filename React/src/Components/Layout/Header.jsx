@@ -5,9 +5,10 @@ const Header = () => {
   return (
     <>
       <div className="flex justify-evenly  h-20 items-center">
-        <h2 className="font-semibold text-4xl px-8">online<span className="text-blue-900">Store</span></h2>
-        
-        
+        <h2 className="font-semibold text-4xl px-8">
+          online<span className="text-blue-900">Store</span>
+        </h2>
+
         <div class="w-full md:w-1/3 mx-auto  items-center ">
           <div class="relative">
             <input
@@ -21,30 +22,49 @@ const Header = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-3 gap-x-4  pr-6 text-2xl ">
-          <button>Login<Link to = './login'><i class="bi bi-person-circle "></i></Link></button>
-          <button><Link to = './register'><i class="bi bi-person-fill-add "></i></Link></button>
-          
+        <div className="grid grid-cols-3   text-2xl ">
+          <button className="flex gap-2">
+            <p>Login</p>
+            <Link to="./login">
+              <i class="bi bi-person-circle"></i>
+            </Link>
+          </button>
+          <button>
+            <Link to="./register">
+              <i class="bi bi-person-fill-add "></i>
+            </Link>
+          </button>
         </div>
       </div>
-      <hr />
-      <div className="list-none flex justify-start bg-blue-800 text-white w-full h-20 items-center text-2xl font-bold ">
-     
-        <li className="hover:text-white">
-          <Link to="./">Home</Link>
-        </li>
-        <li className="hover:text-white">
-          <Link to="./about">About</Link>
-        </li>
-        <li className="hover:text-white">
-          <Link to="/contact">Contact</Link>
-        </li>
-        <li className="hover:text-white">
-          <Link to="/services">Services</Link>
-        </li>
-        <button>
-            <i class="bi bi-cart "></i>
-          </button>
+    
+      <div className="bg-blue-800  flex justify-evenly">
+        <div className="w-1/3 px-10  " >
+          <select className="bg-blue-900  w-full h-full text-white px-4 py-2 text-xl hover:bg-blue-800 font-bold outline-none">
+            <option value="category">Category</option>
+            <option value="electronics">Electronics</option>
+            <option value="fashion">Fashion</option>
+            <option value="health">Health</option>
+          </select>
+        </div>
+        <div className="list-none flex gap-5 justify-start w-1/2 text-white  h-20 items-center text-xl font-bold ">
+          <li className="hover:text-white">
+            <Link to="./">Home</Link>
+          </li>
+          <li className="hover:text-white">
+            <Link to="./about">About</Link>
+          </li>
+          <li className="hover:text-white">
+            <Link to="/contact">Contact</Link>
+          </li>
+          <li className="hover:text-white">
+            <Link to="/services">Services</Link>
+          </li>
+        </div>
+       <div className=" bg-blue-900 w-1/6  flex items-center gap-5 text-white text-xl">
+       <button><i class="bi bi-cart text-3xl px-2"></i></button>
+       <p>Rs 0.00</p>
+       <p>(Items:0)</p>
+       </div>
       </div>
       <hr />
     </>
