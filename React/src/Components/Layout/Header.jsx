@@ -61,7 +61,7 @@ const Header = () => {
           </li>
         </div>
        <div className=" bg-blue-900 w-1/6  flex items-center gap-5 text-white text-xl">
-       <button><i class="bi bi-cart text-3xl px-2"></i></button>
+       <button><Link to = './cart'><i class="bi bi-cart text-3xl px-2"></i></Link></button>
        <p>Rs 0.00</p>
        <p>(Items:0)</p>
        </div>

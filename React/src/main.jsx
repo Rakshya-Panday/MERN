@@ -9,6 +9,7 @@ import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } 
 import Login from './Pages/Login.jsx';
 import Register from './Pages/Register.jsx';
 import Services from './Pages/Services.jsx';
+import Cart from './Pages/Cart.jsx';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -19,6 +20,7 @@ const router = createBrowserRouter(
       <Route path='/login'element = {<Login/>}/>
       <Route path='/register'element = {<Register/>}/>
       <Route path='/services'element = {<Services/>}/>
+      <Route path='/cart'element = {<Cart/>}/>
     
 
     </Route>
