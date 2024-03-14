@@ -37,21 +37,25 @@ const Header = () => {
         </div>
       </div>
     
-      <div className="bg-blue-800  flex justify-evenly">
-        <div className="w-1/3 px-10  " >
-          <select className="bg-blue-900  w-full h-full text-white px-4 py-2 text-xl hover:bg-blue-800 font-bold outline-none">
+      <div className="bg-blue-800  flex justify-evenly h-16">
+        <div className="w-2/12 px-10   " >
+          <select className="bg-blue-900 text-center w-full h-full text-white px-4 py-2 text-xl hover:bg-blue-800 font-bold outline-none">
             <option value="category">Category</option>
+           
             <option value="electronics">Electronics</option>
-            <option value="fashion">Fashion</option>
+            <option value="fashion"><Link to = "/fashion">Fashion</Link></option>
             <option value="health">Health</option>
           </select>
         </div>
         <div className="list-none flex gap-5 justify-start w-1/2 text-white  h-20 items-center text-xl font-bold ">
           <li className="hover:text-white">
-            <Link to="./">Home</Link>
+            <Link to="/">Home</Link>
           </li>
           <li className="hover:text-white">
-            <Link to="./about">About</Link>
+            <Link to="/fashion">Fahion</Link>
+          </li>
+          <li className="hover:text-white">
+            <Link to="/about">About</Link>
           </li>
           <li className="hover:text-white">
             <Link to="/contact">Contact</Link>
