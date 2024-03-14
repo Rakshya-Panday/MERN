@@ -43,7 +43,7 @@ const Header = () => {
             <option value="category">Category</option>
            
             <option value="electronics">Electronics</option>
-            <option value="fashion"><Link to = "/fashion">Fashion</Link></option>
+           <Link to = "/fashion"> <option value="fashion">Fashion</option></Link>
             <option value="health">Health</option>
           </select>
         </div>
