@@ -36,24 +36,28 @@ const Header = () => {
           </button>
         </div>
       </div>
-    
+
       <div className="bg-blue-800  flex justify-evenly h-16">
-        <div className="w-2/12 px-10   " >
-          <select className="bg-blue-900 text-center w-full h-full text-white px-4 py-2 text-xl hover:bg-blue-800 font-bold outline-none">
-            <option value="category">Category</option>
-           
-            <option value="electronics">Electronics</option>
-           <Link to = "/fashion"> <option value="fashion">Fashion</option></Link>
-            <option value="health">Health</option>
-          </select>
+        <div className="menu  bg-blue-900 w-1/6   text-center mx-auto text-white text-xl font-semibold" >
+          <ul  >
+            <li className="mt-7" >
+              Category
+              <div className="sub-menu">
+                <ul className=" text-black mt-2 ">
+                  <li><Link to = '/fashion'>Fashion</Link></li>
+                  <li>Health</li>
+                  <li>Beauty</li>
+                </ul>
+              </div>
+            </li>
+          </ul>
         </div>
+
         <div className="list-none flex gap-5 justify-start w-1/2 text-white  h-20 items-center text-xl font-bold ">
           <li className="hover:text-white">
             <Link to="/">Home</Link>
           </li>
-          <li className="hover:text-white">
-            <Link to="/fashion">Fahion</Link>
-          </li>
+          
           <li className="hover:text-white">
             <Link to="/about">About</Link>
           </li>
@@ -64,11 +68,15 @@ const Header = () => {
             <Link to="/services">Services</Link>
           </li>
         </div>
-       <div className=" bg-blue-900 w-1/6  flex items-center gap-5 text-white text-xl">
-       <button><Link to = './cart'><i class="bi bi-cart text-3xl px-2"></i></Link></button>
-       <p>Rs 0.00</p>
-       <p>(Items:0)</p>
-       </div>
+        <div className=" bg-blue-900 w-1/6  flex items-center gap-5 text-white text-xl">
+          <button>
+            <Link to="./cart">
+              <i class="bi bi-cart text-3xl px-2"></i>
+            </Link>
+          </button>
+          <p>Rs 0.00</p>
+          <p>(Items:0)</p>
+        </div>
       </div>
       <hr />
     </>

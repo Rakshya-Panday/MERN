@@ -14,3 +14,17 @@ th,td{
 tr{
     @apply hover:bg-slate-200;
 }
+.sub-menu{
+    display: none;
+}
+.menu ul li:hover .sub-menu{
+    display: block;
+    background-color: whitesmoke;
+    border: 2px solid rgb(245, 238, 238);
+   
+   
+    
+    
+   
+
+}
