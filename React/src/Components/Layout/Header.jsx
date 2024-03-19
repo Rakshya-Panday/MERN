@@ -1,7 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import {  useSelector } from "react-redux";
 
 const Header = () => {
+const items = useSelector((state)=>state.cart)
+
   return (
     <>
       <div className="flex justify-evenly  h-20 items-center">
@@ -75,7 +78,7 @@ const Header = () => {
             </Link>
           </button>
           <p>Rs 0.00</p>
-          <p>(Items:0)</p>
+          <p>(Items:{items.length})</p>
         </div>
       </div>
       <hr />

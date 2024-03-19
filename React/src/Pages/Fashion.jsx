@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import {add} from '../Redux/CartSlice'
+import { useDispatch } from "react-redux";
 
 const Fashion = () => {
   const [products, setProducts] = useState([]);
   const [limit, setLimit] = useState(8);
+  const dispatch  = useDispatch()
 
   
 
@@ -20,6 +23,10 @@ const Fashion = () => {
 
   fetchData();
 }, []);
+
+const handleAdd = (product)=>{
+  dispatch(add(product));
+}
 
 
   return (
@@ -71,7 +78,9 @@ const Fashion = () => {
               />
               <h2>{product.title}</h2>
               <h3>${product.price}</h3>
-              <button className="bg-blue-500  text-white w-100 rounded p-2">
+              <button className="bg-blue-500  text-white w-100 rounded p-2"
+              onClick={()=>handleAdd(product)}
+              >
                 Add to Cart
               </button>
             </div>

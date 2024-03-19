@@ -1,7 +1,9 @@
 import React from "react";
 import img from "../assets/images/fashion.jpg";
+import { useSelector } from "react-redux";
 
 const Cart = () => {
+  const cartItems = useSelector((state)=>state.cart)
   return (
     <>
       <h1 className="text-3xl underline text-center  mx-auto font-bold">
@@ -21,19 +23,23 @@ const Cart = () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
+          
+            {
+              cartItems.map((items)=>(
+               <>
+               <tr>
+                <td>{items.id}</td>
             <td>
               <img
-                src={img}
+                src={items.image}
                 alt=""
                 style={{ height: "100px", width: "150px" }}
                 className="m-auto"
               />
-              <h5 className="text-center">Product Title</h5>
+              <h5 className="text-center">{items.title}</h5>
             </td>
-            <td>5</td>
-            <td>1000</td>
+            <td>{items.length}</td>
+            <td>{items.price}</td>
             <td>500</td>
             <td>
               <button className="bg-green-600 px-4 py-2 text-white rounded-l-lg">
@@ -42,31 +48,15 @@ const Cart = () => {
               <button className="bg-red-600 px-4 py-2 text-white rounded-r-lg">
                 <i className="bi bi-trash"></i>
               </button>
-            </td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>
-              <img
-                src={img}
-                alt=""
-                style={{ height: "100px", width: "150px" }}
-                className="m-auto"
-              />
-              <h5 className="text-center">Product Title</h5>
-            </td>
-            <td>5</td>
-            <td>1000</td>
-            <td>500</td>
-            <td>
-              <button className="bg-green-600 px-4 py-2 text-white rounded-l-lg">
-                <i className="bi bi-pencil-square"></i>'
-              </button>
-              <button className="bg-red-600 px-4 py-2 text-white rounded-r-lg">
-                <i className="bi bi-trash"></i>
-              </button>
-            </td>
-          </tr>
+            </td> 
+            </tr>
+
+               </>
+              ))
+            }
+            
+          
+         
         </tbody>
       </table>
     </>
@@ -74,3 +64,24 @@ const Cart = () => {
 };
 
 export default Cart;
+{/* <td>1</td>
+            <td>
+              <img
+                src={img}
+                alt=""
+                style={{ height: "100px", width: "150px" }}
+                className="m-auto"
+              />
+              <h5 className="text-center">Product Title</h5>
+            </td>
+            <td>5</td>
+            <td>1000</td>
+            <td>500</td>
+            <td>
+              <button className="bg-green-600 px-4 py-2 text-white rounded-l-lg">
+                <i className="bi bi-pencil-square"></i>'
+              </button>
+              <button className="bg-red-600 px-4 py-2 text-white rounded-r-lg">
+                <i className="bi bi-trash"></i>
+              </button>
+            </td> */}
