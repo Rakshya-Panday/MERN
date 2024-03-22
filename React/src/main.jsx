@@ -18,6 +18,7 @@ import Cart from "./Pages/Cart.jsx";
 import Fashion from "./Pages/Fashion.jsx";
 import { Provider } from "react-redux";
 import {store} from './Redux/Store.jsx'
+import Health from "./Pages/Health.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -30,6 +31,7 @@ const router = createBrowserRouter(
       <Route path="/services" element={<Services />} />
       <Route path="/cart" element={<Cart />} />
       <Route path="/fashion" element={<Fashion />} />
+      <Route path="/health" element={<Health />} />
     </Route>
   )
 );

@@ -30,3 +30,6 @@ tr{
    
 
 }
+label{
+    @apply  px-3;
+}

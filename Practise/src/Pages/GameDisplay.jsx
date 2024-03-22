@@ -1,27 +1,31 @@
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { updateGame } from '../Redux/GameSlice'
 
 const GameDisplay = () => {
     let[gamename,setGame] = useState("")
     let[player,setPlayer] = useState("")
     let dispatch = useDispatch()
+    let select = useSelector((state)=>state.game)
+
+    const handleUpdate = (gamename)=>{
+      dispatch
+    }
   return (
   <>
    <div className='h-96 w-full flex justify-center items-center flex-col'>
       
       <h1>
-        Game :{game}
+        Game :{select.game}
         
       </h1>
      <div className='flex'>
-        <input type="text" onChange={e=>setPlayer(e.target.value)}  />
-        <button className='bg-green-500' onClick={()=>{
-            dispatch({type:"UPDATE_GAME",payload:gamename})
-        }}>Update Game</button>
+        <input type="text" onChange={e=>setGame(e.target.value)}  />
+        <button className='bg-green-500' onClick={()=>handleUpdate(gamename)}>Update Game</button>
 
      </div>
 
-     <h1>
+     {/* <h1>
         Player :{player}
         
       </h1>
@@ -31,7 +35,7 @@ const GameDisplay = () => {
             dispatchEvent({type:"UPDATE_GAME",payload:player})
         }}>Update Player</button>
 
-     </div>
+     </div> */}
     </div>
   </>
   )

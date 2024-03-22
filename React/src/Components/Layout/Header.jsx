@@ -7,7 +7,7 @@ const items = useSelector((state)=>state.cart)
 
   return (
     <>
-      <div className="flex justify-evenly  h-20 items-center">
+      <div className="flex justify-evenly  h-20 items-center ">
         <h2 className="font-semibold text-4xl px-8">
           online<span className="text-blue-900">Store</span>
         </h2>
@@ -40,7 +40,7 @@ const items = useSelector((state)=>state.cart)
         </div>
       </div>
 
-      <div className="bg-blue-800  flex justify-evenly h-16 ">
+      <div className="bg-blue-800  flex justify-evenly h-16  ">
         <div className="menu  bg-blue-900 w-1/6   text-center mx-auto text-white text-xl font-semibold" >
           <ul  >
             <li className="mt-7" >
@@ -48,7 +48,7 @@ const items = useSelector((state)=>state.cart)
               <div className="sub-menu">
                 <ul className=" text-black mt-2 ">
                   <li><Link to = '/fashion'>Fashion</Link></li>
-                  <li>Health</li>
+                  <li><Link to = '/health'>Health</Link></li>
                   <li>Beauty</li>
                 </ul>
               </div>
