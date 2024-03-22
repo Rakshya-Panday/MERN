@@ -21,6 +21,8 @@ tr{
     display: block;
     background-color: whitesmoke;
     border: 2px solid rgb(245, 238, 238);
+    position: relative;
+ z-index: 1;
    
    
     

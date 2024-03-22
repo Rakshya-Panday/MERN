@@ -1,12 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
 
 const GameDisplay = () => {
+    let[gamename,setGame] = useState("")
+    let[player,setPlayer] = useState("")
+    let dispatch = useDispatch()
   return (
-    <>
- <div className='h-96 w-full flex justify-center items-center flex-col'>
+  <>
+   <div className='h-96 w-full flex justify-center items-center flex-col'>
       
       <h1>
-        Game :"Football"
+        Game :{game}
         
       </h1>
      <div className='flex'>
@@ -18,7 +22,7 @@ const GameDisplay = () => {
      </div>
 
      <h1>
-        Player :"Messi"
+        Player :{player}
         
       </h1>
      <div className='flex'>
@@ -29,7 +33,7 @@ const GameDisplay = () => {
 
      </div>
     </div>
-    </>
+  </>
   )
 }
 

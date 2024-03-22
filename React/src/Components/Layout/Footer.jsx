@@ -31,7 +31,8 @@ const Footer = () => {
       </div>
       <hr />
       <div className="col-span-3  grid grid-cols-4 ">
-        
+        <div className="">hello</div>
+        <div>hdv</div>
       </div>
     </div>
   );

@@ -5,7 +5,7 @@ import img from '../assets/images/fashion.jpg'
 const Home = () => {
   return (
     <>
-   <div  className = "flex m-auto"style={{ height: '75vh' }}>
+   <div  className = " relative flex m-auto"style={{ height: '75vh' }}>
         <Carousel >
           <img
             className=""
