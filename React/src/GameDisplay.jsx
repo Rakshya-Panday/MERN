@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux'
 const GameDisplay = () => {
     let[gamename,setGame] = useState("")
     let[player,setPlayer] = useState("")
-    let disptach = useDispatch()
+    let dispatch = useDispatch()
   return (
   <>
    <div className='h-96 w-full flex justify-center items-center flex-col'>

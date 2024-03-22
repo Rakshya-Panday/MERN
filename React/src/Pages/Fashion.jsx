@@ -70,7 +70,7 @@ const handleAdd = (product)=>{
         </div>
         <div className=" col-span-3  grid grid-cols-4 ">
           {products.map((product) => (
-            <div className="card p-5 col-span-1 border-2 m-2">
+            <div className="card p-5 col-span-1 border-2 m-2 bg-white">
               <img
                 src={product.image}
                 alt="image"
