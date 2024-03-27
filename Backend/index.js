@@ -8,6 +8,7 @@ require('dotenv').config()
 //import routes
 
 const testRoute = require('./Routes/testRoute')
+const categoryRoutes = require('./Routes/categoryRoutes')
 
 const app = express()
 const port = process.env.PORT
@@ -19,6 +20,8 @@ app.use(express.json()) // this is used to convert the data in the form of json 
 // })
 
 //using Routes
+
+app.use(categoryRoutes)
 
 app.use(testRoute)
 app.listen(port,()=>{
