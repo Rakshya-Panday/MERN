@@ -9,7 +9,8 @@ exports.addProduct = async(req,res)=>{
             price : req.body.price,
             description : req.body.description,
             category: req.body.category,
-            counting_stock : req.body.counting_stock
+            counting_stock : req.body.counting_stock,
+            product_image : req.file?.path
             
         })
         if(!product){
@@ -50,7 +51,7 @@ exports.getAllProductDetails = async (req,res)=>{
 exports .getProductByCategory = async (req,res)=>{
     let products = await ProductModel.find({
         category : req.params.category_id
-    })
+    }).select('title').select('rating')
     if(!products){
         return res.send(400).json({error:"Something went wrong"})
     }

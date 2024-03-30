@@ -1,5 +1,6 @@
-// const express = require('express')
-// require('dotenv').config()
+const express = require('express')
+require('dotenv').config()
+const { default: connectDB } = require('./database/connection')
 // import connectDB from './database/connection.js'
 
 // connectDB()
@@ -13,7 +14,6 @@
 const testRoute = require('./Routes/testRoute')
 const categoryRoutes = require('./Routes/categoryRoutes')
 const productRoutes = require('./Routes/productRoutes')
-const { default: connectDB } = require('./database/connection')
 
 const app = express()
 const port = process.env.PORT

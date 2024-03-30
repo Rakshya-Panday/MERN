@@ -1,5 +1,5 @@
 const mongoose = require("mongoose")
-const {objectId} =  mongoose.Schema
+const {ObjectId} =  mongoose.Schema
 const productSchema = new mongoose.Schema({
     title:{
         type:String,
@@ -17,12 +17,12 @@ const productSchema = new mongoose.Schema({
     product_image:{
         type:String,
     },
-    reting:{
+    rating:{
         type:Number,
         default:1
     },
     category:{
-        type: objectId,
+        type: ObjectId,
         ref:"CategoryModel"
     },
     counting_stock:{
