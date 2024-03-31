@@ -6,6 +6,7 @@ import { createBrowserRouter,createRoutesFromElements,Route ,RouterProvider} fro
 import GameDisplay from './Pages/GameDisplay.jsx'
 import { Provider } from 'react-redux'
 import { store } from './Redux/Store.jsx'
+import AddUser from './Pages/AddUser.jsx'
 
 
 
@@ -13,6 +14,7 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element = {<App/>}>
       <Route path='/gamedisplay' element = {<GameDisplay/>}/>
+      <Route path='/add' element = {<AddUser/>}/>
     
 
     </Route>
