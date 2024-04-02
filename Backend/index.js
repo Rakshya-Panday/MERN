@@ -14,6 +14,7 @@ const { default: connectDB } = require('./database/connection')
 const testRoute = require('./Routes/testRoute')
 const categoryRoutes = require('./Routes/categoryRoutes')
 const productRoutes = require('./Routes/productRoutes')
+const userRoutes = require('./Routes/userRoutes')
 
 const app = express()
 const port = process.env.PORT
@@ -26,8 +27,9 @@ app.use(express.json()) // this is used to convert the data in the form of json 
 
 //using Routes
 
-app.use(categoryRoutes)
-app.use(productRoutes)
+app.use('/api',categoryRoutes)
+app.use('/api',productRoutes)
+app.use('/api',userRoutes)
 
 
 app.use(testRoute)
