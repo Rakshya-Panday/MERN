@@ -4,7 +4,8 @@ const TokenModel = require('../Model/tokenModel')
 const bcrypt = require('bcrypt')
 const crypto = require('crypto')
 const userModel = require('../Model/userModel')
-const sendEmail = require('../Utils/emailSender')
+const sendEmail = require('../Utils/emailSender') 
+const jwt = require('jsonwebtoken')
 exports.register = async(req,res)=>{
 
     let {username,email,password,dateOfBirth,gender,street,phoneNumber,state,zipcode,country,city}=req.body
@@ -143,7 +144,7 @@ exports.resendVerfication = async(req,res)=>{
 }
 
 //forget password
-exports.resetPassword = async (req,res)=>{
+exports.forgetPassword = async (req,res)=>{
     //find if email is register or not
 
     let user = await UserModel.findOne({email:req.body.email})
@@ -173,4 +174,68 @@ exports.resetPassword = async (req,res)=>{
         html:`<a href ='${url}'><button>Reset Password</button></a>`
     })
     res.send({message:"Reset password link is send to your email."})
+}
+
+//reset password
+exports.resetPassword = async(req,res)=>{
+    //check token
+    let token = await TokenModel.findOne({token:req.params.token})
+    if(!token){
+        return res.status(400).json({error:"Invalid token or token may expire"})
+    }
+
+    //find user
+    let user = await UserModel.findById(token.user)
+    if(!user){
+        return res.status(400).json({error:"Something went wrong "})
+    }
+
+    //change password
+    let salt_rounds = await bcrypt.genSalt(10)
+    user.password = await bcrypt.hash(req.body.password,salt_rounds)
+
+    user = await user.save()
+    if(!user){
+        return res.status(400).json({error:"Something went wrong "})
+    }
+    res.send({message:"password has been reset successfully"})
+
+}
+
+
+//----------------------------Login-------------------------------------
+exports.signIn = async(req,res)=>{
+
+    let{email,password}= req.body
+    //check if email is register or not
+    let user = await UserModel.findOne({email})
+    if(!user){
+        return res.status(400).json({error:"Email not register "})
+    }
+    //check if password is correct or not
+
+    let passwordCheck = await bcrypt.compare(password,user.password)
+    if(!passwordCheck){
+        return res.status(400).json({error:"Password is wrong "})
+    }
+    //check if verified or not
+    if(!user.isVerfied){
+        return res.status(400).json({error:"User is not verified.Verify First"})
+    }
+    //genetate token
+    let{username,role,_id} =  user
+     let token = jwt.sign({username,role,_id},process.env.JWT_SECRET,{expiresIn:86400})
+
+    //send data to frontend
+
+    res.cookie('myCookie',token, {expiresIn:86400})
+    res.send({token,user:{_id,username,email,role}})
+}
+
+//logout
+
+exports.logout = (req,res)=>{
+    res.clearCookie()
+    res.send({message:"Logout successfully"})
+
 }
