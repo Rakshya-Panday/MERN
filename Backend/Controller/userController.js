@@ -4,7 +4,7 @@ const TokenModel = require('../Model/tokenModel')
 const bcrypt = require('bcrypt')
 const crypto = require('crypto')
 const userModel = require('../Model/userModel')
-const sendEmail = require('../Utils/emalSender')
+const sendEmail = require('../Utils/emailSender')
 exports.register = async(req,res)=>{
 
     let {username,email,password,dateOfBirth,gender,street,phoneNumber,state,zipcode,country,city}=req.body
@@ -49,12 +49,15 @@ exports.register = async(req,res)=>{
     })
 
     //send verfication link(generate token) in email
+     
+    const url = `http://localhost:5000/api/verifyemail/${token.token}`
+
     sendEmail({
         from:"noreply@something.com",
         to:email,
-        subject :"verification Email",
-        text:`Copy paste the link in the browser to verify your account${url}`,
-        html:`<a href =' ${url}'><button>Verfify Account</button></a>`
+        subject :"Verification Email",
+        text:`Copy paste the link in the browser to verify your account.${url}`,
+        html:`<a href ='${url}'><button>Verfify Account</button></a>`
     })
 
     if(!new_user){
@@ -87,7 +90,7 @@ exports.verfiyUser = async(req,res)=>{
         user.isVerfied = true
         user = await user.save
         if(!user){
-            return res.status(400).json({error:"Failed to verify.Please try again"})
+            return res.status(400).json({error:"Failed to verify.Please try again later"})
         }
         res.send({message: "user verfied successfully"})
 
