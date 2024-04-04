@@ -1,4 +1,4 @@
-const { register, verfiyUser, resendVerfication,  forgetPassword, resetPassword, signIn, logout } = require('../Controller/userController')
+const { register, verfiyUser, resendVerfication,  forgetPassword, resetPassword, signIn, logout, getUserList, makeAdmin } = require('../Controller/userController')
 
 const router = require('express').Router()
 
@@ -10,5 +10,7 @@ router.post('/forgetpassword',forgetPassword)
 router.post('/resetpassword',resetPassword)
 router.post('/login',signIn)
 router.get('/logout',logout)
+router.get('/userlist',getUserList)
+router.post('/admin',makeAdmin)
 
 module.exports = router

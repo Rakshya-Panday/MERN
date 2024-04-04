@@ -6,6 +6,7 @@ const crypto = require('crypto')
 const userModel = require('../Model/userModel')
 const sendEmail = require('../Utils/emailSender') 
 const jwt = require('jsonwebtoken')
+const{expressjwt} = require('express-jwt')
 exports.register = async(req,res)=>{
 
     let {username,email,password,dateOfBirth,gender,street,phoneNumber,state,zipcode,country,city}=req.body
@@ -239,3 +240,61 @@ exports.logout = (req,res)=>{
     res.send({message:"Logout successfully"})
 
 }
+
+
+//userlist
+
+exports.getUserList = async(req,res)=>{
+    let users = await UserModel.find()
+    if(!users){
+        return res.send(400).json({error:"Something went wrong"})
+    }
+    res.send(users)
+}
+
+
+//make admin
+exports.makeAdmin = async(req,res)=>{
+    let users = await UserModel.findOne({email:req.body.email})
+    if(!users){
+      return res.send(400).json({error:"Email  not register"})
+    }
+    users.role = 1
+    users = await users.save()
+    if(!users){
+        return res.send(400).json({error:"Something went wrong"})
+    }
+    res.send({message:"New admin added"})
+}
+
+
+//authorization
+//user logged in or not - eg to view own 
+exports.authorizeLogin = (req,res,next)=>expressjwt({
+    algorithms:['HS256'],
+    secret :process.env.JWT_SECRET
+
+})(req,res,(error)=>{
+    if(!error){
+        return res.status(500).json({error:"Login to continue"})
+    }
+    next()
+})
+
+//authorize --check role
+exports.checkAdmin= (req,res,next)=>expressjwt.jwt({
+    algorithms:['HS256'],
+    secret :process.env.JWT_SECRET,
+    userProperty:"auth"
+})(req,res,(error)=>{
+    if(error){
+        res.status(400).json({error,error})
+    }   
+    else if(req.auth.role===1){
+        next();
+    } 
+    else{
+        res.status(400).json({error:"Unauthorized access"})
+    }
+
+})
