@@ -15,6 +15,7 @@ const testRoute = require('./Routes/testRoute')
 const categoryRoutes = require('./Routes/categoryRoutes')
 const productRoutes = require('./Routes/productRoutes')
 const userRoutes = require('./Routes/userRoutes')
+const orderRoutes = require('./Routes/orderRoutes')
 
 const app = express()
 const port = process.env.PORT
@@ -30,6 +31,7 @@ app.use(express.json()) // this is used to convert the data in the form of json 
 app.use('/api',categoryRoutes)
 app.use('/api',productRoutes)
 app.use('/api',userRoutes)
+app.use('/api',orderRoutes)
 
 
 app.use(testRoute)

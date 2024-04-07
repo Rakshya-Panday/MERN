@@ -1,19 +1,23 @@
 import React from "react";
+
 import { Carousel } from "flowbite-react";
-import img from '../assets/images/fashion.jpg'
+import img from "../assets/images/background.jpg";
+import img2 from "../assets/images/fashion.jpg";
+import { Link } from "react-router-dom";
 
 const Home = () => {
+  <style></style>;
   return (
     <>
-   <div  className = " relative flex m-auto"style={{ height: '75vh' }}>
+      {/* <div  className = " relative flex m-auto min-h-screen " style={{ height: '75vh' }}>
         <Carousel >
           <img
-            className=""
-            src="https://images.unsplash.com/photo-1704559920243-ef2b536da968?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            className="h-3/4 w-3/4"
+            src={img}
             alt="..."
           />
           <img
-            src="https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?q=80&w=1858&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            src={img2}
             alt="..."
           />
           <img
@@ -29,6 +33,54 @@ const Home = () => {
             alt="..."
           />
         </Carousel>
+      </div> */}
+
+      <div className="home min-h-[550px] bg-no-repeat cover ">
+        <div className="container mx-auto py-48 flex-col items-center">
+          <h1 className="text-6xl font-medium mb-4 text-white">
+            We Provide <br /> best Quality Product
+          </h1>
+          <p className="text-white font-semibold text-xl">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque
+            praesentium
+            <br /> dolorum nostrum ipsam iusto eos, perspiciatis autem, .
+          </p>
+          <div className="mt-5">
+            <Link className=" bg-blue-500 rounded   text-white p-2">
+              Shop Now
+            </Link>
+          </div>
+        </div>
+      </div>
+
+      <div className="container flex justify-center gap-10 mx-auto ">
+        <div className=" w-10/12  py-8 items-center grid grid-cols-3 gap-6 mx-auto  justify-center">
+          <div className="border-2 shadow-md flex  border-blue-200 rounded-sm   py-5  justify-center items-center gap-5">
+            <i class="bi bi-truck text-5xl"></i>
+            <div>
+              <h1 className="text-xl font-semibold">Free Shopping</h1>
+              <p>Order over 200</p>
+            </div>
+            
+          </div>
+          <div className="border-2  shadow-md flex border-blue-200 rounded-sm py-5 justify-center items-center gap-5">
+            <i class="bi bi-coin text-5xl"></i>
+            <div>
+              <h1 className="text-xl font-semibold">Money Returns</h1>
+              <p className="text-gray-500">7 Days money return</p>
+            </div>
+            
+          </div>
+          <div className="border-2 shadow-md flex  border-blue-200 rounded-sm   py-5  justify-center items-center gap-5">
+            <i class="bi bi-clock text-5xl"></i>
+            <div>
+              <h1 className="text-xl font-semibold">24/7 Support</h1>
+              <p>Customer Support</p>
+            </div>
+            
+          </div>
+        </div>
+        
       </div>
     </>
   );

@@ -6,6 +6,7 @@ body{
     margin: 0;
     background-color: whitesmoke
 }
+
 th,td{
     @apply py-2 px-4 border-2 text-center;
    
