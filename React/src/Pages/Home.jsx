@@ -1,8 +1,10 @@
 import React from "react";
 
 import { Carousel } from "flowbite-react";
-import img from "../assets/images/background.jpg";
-import img2 from "../assets/images/fashion.jpg";
+
+
+import watch from "../assets/images/watch.jpg";
+import flower from "../assets/images/flower.jpg";
 import { Link } from "react-router-dom";
 
 const Home = () => {
@@ -35,18 +37,18 @@ const Home = () => {
         </Carousel>
       </div> */}
 
-      <div className="home min-h-[550px] bg-no-repeat cover ">
-        <div className="container mx-auto py-48 flex-col items-center">
-          <h1 className="text-6xl font-medium mb-4 text-white">
+      <div className="home">
+        <div className=" container mx-auto py-48  flex-col items-center">
+          <h1 className="text-6xl  px-30 font-medium mb-4 text-white">
             We Provide <br /> best Quality Product
           </h1>
-          <p className="text-white font-semibold text-xl">
+          <p className="text-white font-semibold px-30 text-xl">
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque
             praesentium
             <br /> dolorum nostrum ipsam iusto eos, perspiciatis autem, .
           </p>
-          <div className="mt-5">
-            <Link className=" bg-blue-500 rounded   text-white p-2">
+          <div className="mt-5 px-30">
+            <Link className=" bg-blue-900 rounded   text-white p-2">
               Shop Now
             </Link>
           </div>
@@ -61,7 +63,6 @@ const Home = () => {
               <h1 className="text-xl font-semibold">Free Shopping</h1>
               <p>Order over 200</p>
             </div>
-            
           </div>
           <div className="border-2  shadow-md flex border-blue-200 rounded-sm py-5 justify-center items-center gap-5">
             <i class="bi bi-coin text-5xl"></i>
@@ -69,7 +70,6 @@ const Home = () => {
               <h1 className="text-xl font-semibold">Money Returns</h1>
               <p className="text-gray-500">7 Days money return</p>
             </div>
-            
           </div>
           <div className="border-2 shadow-md flex  border-blue-200 rounded-sm   py-5  justify-center items-center gap-5">
             <i class="bi bi-clock text-5xl"></i>
@@ -77,10 +77,161 @@ const Home = () => {
               <h1 className="text-xl font-semibold">24/7 Support</h1>
               <p>Customer Support</p>
             </div>
-            
           </div>
         </div>
-        
+      </div>
+
+      <div className="container max-w-[1080px] mx-auto min-h-[200px] bg-white">
+        <h1 className="text-3xl font-medium mb-6 pt-3 pl-2 uppercase">
+          Categories
+        </h1>
+        <div className="grid grid-cols-3 gap-3">
+          <div className="relative rounded-sm overflow-hidden">
+            <Link>
+              <img src={watch} alt="" />
+              <p className="absolute inset-0 bg-black opacity-50 flex items-center justify-center text-xl text-white font-medium hover:bg-opacity-65 shadow-sm">
+                Electronics
+              </p>
+            </Link>
+          </div>
+          <div className="relative rounded-sm overflow-hidden">
+            <Link>
+              <img src={flower} alt="" />
+              <p className="absolute inset-0 bg-black opacity-50 flex items-center justify-center text-xl text-white font-medium  hover:bg-opacity-65 shadow-sm">
+                Floweing and Gardening
+              </p>
+            </Link>
+          </div>
+          <div className="relative rounded-sm overflow-hidden">
+            <Link>
+              <img src={watch} alt="" />
+              <p className="absolute inset-0 bg-black opacity-50 flex items-center justify-center text-xl text-white font-medium  hover:bg-opacity-65 shadow-sm">
+                {" "}
+                Beauty & Health
+              </p>
+            </Link>
+          </div>
+          <div className="relative rounded-sm overflow-hidden">
+            <Link>
+              <img src={watch} alt="" />
+              <p className="absolute inset-0 bg-black opacity-50 flex items-center justify-center text-xl text-white font-medium  hover:bg-opacity-65 shadow-sm">
+                Stationary
+              </p>
+            </Link>
+          </div>
+          <div className="relative rounded-sm overflow-hidden">
+            <Link>
+              <img src={watch} alt="" />
+              <p className="absolute inset-0 bg-black opacity-50 flex items-center justify-center text-xl text-white font-medium  hover:bg-opacity-65 shadow-sm">
+                Babies & Toys
+              </p>
+            </Link>
+          </div>
+          <div className="relative rounded-sm overflow-hidden">
+            <Link>
+              <img src={watch} alt="" />
+              <p className="absolute inset-0 bg-black opacity-50 flex items-center justify-center text-xl text-white font-medium  hover:bg-opacity-65 shadow-sm">
+                Sports & Outdoor
+              </p>
+            </Link>
+          </div>
+        </div>
+      </div>
+
+      <div className="container max-w-[1080px] mx-auto min-h-[200px] bg-white mt-10">
+        <h1 className="text-3xl font-medium mb-6 pt-3 pl-2 uppercase">
+          Top New Arrival
+        </h1>
+        <div className="grid grid-cols-4 gap-6">
+          <div className="bg-white shadow-md overflow-hidden rounded">
+            <div className="relative">
+              <img src={flower} alt="" className="w-full" />
+              <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center gap-1">
+                <Link>
+                  {" "}
+                  <i class="bi bi-heart text-lg w-9 h-8 text-white font-bold px-2 hover:bg-blue-800"></i>
+                </Link>
+                <Link>
+                  {" "}
+                  <i class="bi bi-search text-lg w-9 h-8 text-white font-bold px-2 hover:bg-blue-800"></i>
+                </Link>
+              </div>
+            </div>
+            <div className="pt-4 pb-3 px-4">
+              <h4 className="uppercase font-medium text-xl mb-2">Flower</h4>
+              <p className="text-blue-600 font-semibold">$45.50</p>
+            </div>
+            <button className="bg-blue-700 text-white w-full rounded p-1">
+              Add to cart
+            </button>
+          </div>
+          <div className="bg-white shadow-md overflow-hidden rounded">
+            <div className="relative">
+              <img src={flower} alt="" className="w-full" />
+              <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center gap-1">
+                <Link>
+                  {" "}
+                  <i class="bi bi-heart text-lg w-9 h-8 text-white font-bold px-2 hover:bg-blue-800"></i>
+                </Link>
+                <Link>
+                  {" "}
+                  <i class="bi bi-search text-lg w-9 h-8 text-white font-bold px-2 hover:bg-blue-800"></i>
+                </Link>
+              </div>
+            </div>
+            <div className="pt-4 pb-3 px-4">
+              <h4 className="uppercase font-medium text-xl mb-2">Flower</h4>
+              <p className="text-blue-600 font-semibold">$45.50</p>
+            </div>
+            <button className="bg-blue-700 text-white w-full rounded p-1 mb-1">
+              Add to cart
+            </button>
+          </div>
+          <div className="bg-white shadow-md overflow-hidden rounded">
+            <div className="relative">
+              <img src={flower} alt="" className="w-full" />
+              <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center gap-1">
+                <Link>
+                  {" "}
+                  <i class="bi bi-heart text-lg w-9 h-8 text-white font-bold px-2 hover:bg-blue-800"></i>
+                </Link>
+                <Link>
+                  {" "}
+                  <i class="bi bi-search text-lg w-9 h-8 text-white font-bold px-2 hover:bg-blue-800"></i>
+                </Link>
+              </div>
+            </div>
+            <div className="pt-4 pb-3 px-4">
+              <h4 className="uppercase font-medium text-xl mb-2">Flower</h4>
+              <p className="text-blue-600 font-semibold">$45.50</p>
+            </div>
+            <button className="bg-blue-700 text-white w-full rounded p-1 mb-1">
+              Add to cart
+            </button>
+          </div>
+          <div className="bg-white shadow-md overflow-hidden rounded">
+            <div className="relative">
+              <img src={flower} alt="" className="w-full" />
+              <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center gap-1">
+                <Link>
+                  {" "}
+                  <i class="bi bi-heart text-lg w-9 h-8 text-white font-bold px-2 hover:bg-blue-800"></i>
+                </Link>
+                <Link>
+                  {" "}
+                  <i class="bi bi-search text-lg w-9 h-8 text-white font-bold px-2 hover:bg-blue-800"></i>
+                </Link>
+              </div>
+            </div>
+            <div className="pt-4 pb-3 px-4">
+              <h4 className="uppercase font-medium text-xl mb-2">Flower</h4>
+              <p className="text-blue-600 font-semibold">$45.50</p>
+            </div>
+            <button className="bg-blue-700 text-white w-full rounded p-1 mb-1">
+              Add to cart
+            </button>
+          </div>
+        </div>
       </div>
     </>
   );

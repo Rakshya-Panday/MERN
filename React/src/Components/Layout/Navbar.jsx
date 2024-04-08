@@ -98,6 +98,9 @@ const Navbar = () => {
               <Link className="flex items-center px-6 py-3 transition">Health</Link>
               <Link className="flex items-center px-6 py-3 transition">Stationary</Link>
               <Link className="flex items-center px-6 py-3 transition">Beauty & Health</Link>
+              <Link className="flex items-center px-6 py-3 transition">Sports & Outdoor</Link>
+              <Link className="flex items-center px-6 py-3 transition">Babies & Toys</Link>
+              <Link className="flex items-center px-6 py-3 transition">Electronics Devices</Link>
 
             </div>
           </div>
