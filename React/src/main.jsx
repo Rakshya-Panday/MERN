@@ -13,7 +13,7 @@ import {
 } from "react-router-dom";
 import Login from "./Pages/Login.jsx";
 import Register from "./Pages/Register.jsx";
-import Services from "./Pages/Services.jsx";
+
 import Cart from "./Pages/Cart.jsx";
 import Fashion from "./Pages/Fashion.jsx";
 import { Provider } from "react-redux";
@@ -28,7 +28,7 @@ const router = createBrowserRouter(
       <Route path="/contact" element={<Contact />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
-      <Route path="/services" element={<Services />} />
+      
       <Route path="/cart" element={<Cart />} />
       <Route path="/fashion" element={<Fashion />} />
       <Route path="/health" element={<Health />} />

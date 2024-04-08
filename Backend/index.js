@@ -6,6 +6,8 @@ const { default: connectDB } = require('./database/connection')
 // connectDB()
 
 //middleware imports
+const morgan = require('morgan')
+const cors = require('cors')
 
 
 
@@ -20,7 +22,9 @@ const orderRoutes = require('./Routes/orderRoutes')
 const app = express()
 const port = process.env.PORT
 
-app.use(express.json()) // this is used to convert the data in the form of json format
+app.use(express.json())
+app.use(morgan('dev'))
+app.use(cors()) // this is used to convert the data in the form of json format
 
 // app.get('/hello',()=>{
 //     response.send("HELLO WORLD!")
@@ -32,6 +36,7 @@ app.use('/api',categoryRoutes)
 app.use('/api',productRoutes)
 app.use('/api',userRoutes)
 app.use('/api',orderRoutes)
+
 
 
 app.use(testRoute)

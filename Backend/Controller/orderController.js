@@ -59,3 +59,71 @@ if(!order){
 res.send(address)
 
 }
+
+//to get all orders
+
+exports.getAllOrders = async (req,res)=>{
+    let orders = await OrderModel.find().populate({ path:'user',populate:'address'})
+    .populate({ path:'orderItems',populate:{path:'product',populate:'category'}})
+    if(!orders){
+        return res.status(400).json({error:"Something went wrong"})
+    }
+    res.send(orders)
+}
+
+
+//to get order details
+exports.getOrderDetails = async(req,res)=>{
+    let order = await OrderModel.findById(req.params.id).populate({ path:'user',populate:'address'})
+    .populate({ path:'orderItems',populate:{path:'product',populate:'category'}})
+    if(!order){
+        return res.status(400).json({error:"Something went wrong"})
+    }
+    res.send(order)
+}
+
+
+//to get order of a user
+exports.getOrdersByUser = async(req,res)=>{
+    let order = await OrderModel.find({ user: req.params.user_id}).populate({ path:'user',populate:'address'})
+    .populate({ path:'orderItems',populate:{path:'product',populate:'category'}})
+    if(!order){
+        return res.status(400).json({error:"Something went wrong"})
+    }
+    res.send(order)
+}
+
+//update order
+
+exports.updateOrder = async(req,res)=>{
+    let order = await OrderModel.findByIdAndUpdate(req.params.id,{
+        orderStatus :req.body.orderStatus
+    },{new:true})
+    if(!order){
+        return res.status(400).json({error:"Something went wrong"})
+    }
+    res.send(order)
+}
+
+//delete order
+exports.deleteorder = (req,res)=>{
+    OrderModel.findByIdAndDelete(req.params.id)
+    .then(order=>{
+        if(!order){
+            return res.status(400).json({error:"Order not found"})
+        }
+        order.orderItems.map(orderItem=>{
+            orderItemsModel.findByIdAndDelete(orderItem)
+            .then(orderitem=>{
+                if(!orderitem){
+                    return res.status(400).json({error:"Something went wrong"})
+                }
+            })
+        })
+        res.send({message:"Order deleted successfully"})
+
+    })
+    .catch(error=>{
+        return res.status(400).json({error:error.message})
+    })
+}
