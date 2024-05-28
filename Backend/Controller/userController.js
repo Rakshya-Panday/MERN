@@ -38,10 +38,10 @@ exports.register = async(req,res)=>{
         username,
         email,
         password :hash_password,
-        phoneNumber,
-        gender,
-        dateOfBirth,
-        address:address._id
+        // phoneNumber,
+        // gender,
+        // dateOfBirth,
+        // address:address._id
     })
 
     //generate token

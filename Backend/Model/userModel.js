@@ -18,22 +18,22 @@ const userSchema = new mongoose.Schema({
         required:true,
         trim:true
     },
-    address:{
-        type:ObjectId,
-       ref:"Address"
-    },
-    phoneNumber:{
-        type:Number,
+    // address:{
+    //     type:ObjectId,
+    //    ref:"Address"
+    // },
+    // phoneNumber:{
+    //     type:Number,
 
-    },
+    // },
     dateOfBirth:{
         type:Date,
         // required:true
     },
-    gender:{
-        type:String,
-        required:true
-    },
+    // gender:{
+    //     type:String,
+    //     required:true
+    // },
     isVerfied:{
         type:Boolean,
         default:false
