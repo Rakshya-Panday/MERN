@@ -9,7 +9,8 @@ const jwt = require('jsonwebtoken')
 const{expressjwt} = require('express-jwt')
 exports.register = async(req,res)=>{
 
-    let {username,email,password,dateOfBirth,gender,street,phoneNumber,state,zipcode,country,city}=req.body
+    // let {username,email,password,dateOfBirth,gender,street,phoneNumber,state,zipcode,country,city}=req.body
+    let {username,email,password}=req.body
     //check if username already exists
 
     let user = await UserModel.findOne({username})
@@ -22,13 +23,13 @@ exports.register = async(req,res)=>{
         return res.status(400).json({error:"Email already exists:Please choose another email"})
     }
     //record the address->id
-    let address = await AddressModel.create({
-        street,city,country,zipcode,state
-    })
-    if(!address){
-        return res.status(400).json({error:"Something went wrong"})
-    }
-//ecnrypt password we use crypto which is the node pacakge ehich is more difficult to userstand also and bcrypt we use bcrypt
+    // let address = await AddressModel.create({
+    //     street,city,country,zipcode,state
+    // })
+    // if(!address){
+    //     return res.status(400).json({error:"Something went wrong"})
+    // }
+//ecnrypt password we use crypto which is the node pacakge which is more difficult to userstand also and bcrypt we use bcrypt
   //salt is a keyword used in bcrypt
     let salt = await bcrypt.genSalt(10)
     let hash_password = await bcrypt.hash(password,salt)
@@ -52,7 +53,7 @@ exports.register = async(req,res)=>{
 
     //send verfication link(generate token) in email
      
-    const url = `http://localhost:5000/api/verifyemail/${token.token}`
+    const url = `http://localhost:3000/verifyemail/${token.token}`
 
     sendEmail({
         from:"noreply@something.com",
@@ -131,7 +132,7 @@ exports.resendVerfication = async(req,res)=>{
         return res.status(400).json({error:"Something went wrong"})
     }
 
-    const url = `http://localhost:5000/api/verfiyemail/${token.token}`
+    const url = `http://localhost:3000/verfiyemail/${token.token}`
     sendEmail({
         from:"noreply@something.com",
         to:req.body.email,
@@ -166,7 +167,7 @@ exports.forgetPassword = async (req,res)=>{
         return res.status(400).json({error:"Something went wrong"})
     }
 
-    const url = `http://localhost:5000/api/resetpassword/${token.token}`
+    const url = `http://localhost:3000/resetpassword/${token.token}`
     sendEmail({
         from:"noreply@something.com",
         to:req.body.email,

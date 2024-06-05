@@ -26,10 +26,10 @@ const userSchema = new mongoose.Schema({
     //     type:Number,
 
     // },
-    dateOfBirth:{
-        type:Date,
-        // required:true
-    },
+    // dateOfBirth:{
+    //     type:Date,
+    //     required:true
+    // },
     // gender:{
     //     type:String,
     //     required:true

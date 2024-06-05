@@ -11,31 +11,7 @@ const Home = () => {
   <style></style>;
   return (
     <>
-      {/* <div  className = " relative flex m-auto min-h-screen " style={{ height: '75vh' }}>
-        <Carousel >
-          <img
-            className="h-3/4 w-3/4"
-            src={img}
-            alt="..."
-          />
-          <img
-            src={img2}
-            alt="..."
-          />
-          <img
-            src="https://flowbite.com/docs/images/carousel/carousel-3.svg"
-            alt="..."
-          />
-          <img className="max-h-auto max-w-auto overflow-hidden"
-            src={img}
-            alt="..."
-          />
-          <img
-            src="https://flowbite.com/docs/images/carousel/carousel-5.svg"
-            alt="..."
-          />
-        </Carousel>
-      </div> */}
+     
 
       <div className="home">
         <div className=" container mx-auto py-48  flex-col items-center">
