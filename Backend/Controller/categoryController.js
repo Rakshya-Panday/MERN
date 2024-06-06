@@ -33,7 +33,7 @@ exports.addCategory = async (req,res)=>{
 
 exports.getAllCategories = async(req,res)=>{
     let categories = await categoryModel.find()
-    if(categories){
+    if(!categories){
         return res.status(400).json({error:"Something went wrong"})
     }
     res.send(categories)

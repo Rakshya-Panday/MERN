@@ -1,9 +1,9 @@
-const UserModel = require('../Model/userModel')
+
 const AddressModel = require('../Model/addressModel')
 const TokenModel = require('../Model/tokenModel')
 const bcrypt = require('bcrypt')
 const crypto = require('crypto')
-const userModel = require('../Model/userModel')
+const UserModel = require('../Model/userModel')
 const sendEmail = require('../Utils/emailSender') 
 const jwt = require('jsonwebtoken')
 const{expressjwt} = require('express-jwt')
@@ -79,7 +79,7 @@ exports.verfiyUser = async(req,res)=>{
     }
     //find user
 
-    let user = await userModel.findById(token.user)
+    let user = await UserModel.findById(token.user)
         if(!user){
             return res.status(400).json({error:"User associated with this token not found "})
         }
