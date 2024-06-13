@@ -1,4 +1,5 @@
-const ProductModel = require('../Model/productModel')
+const ProductModel = require('../Model/productModel') 
+const fs = require('fs')
 
 //add new product 
 exports.addProduct = async(req,res)=>{
@@ -9,12 +10,12 @@ exports.addProduct = async(req,res)=>{
             price : req.body.price,
             description : req.body.description,
             category: req.body.category,
-            counting_stock : req.body.counting_stock,
+            count_in_stock : req.body.count_in_stock,
             product_image : req.file?.path
             
         })
         if(!product){
-            return res.send(400).json({error:"Something went wrong"})
+            return res.status(400).json({error:"Something went wrong"})
         }
         res.send(product)
 
@@ -30,9 +31,9 @@ exports.addProduct = async(req,res)=>{
 exports.getAllProducts = async (req,res)=>{
     let products = await ProductModel.find().populate('category','category_name')
     if(!products){
-        return res.send(400).json({error:"Something went wrong"})
+        return res.status(400).json({error:"Something went wrong"})
     }
-    res.send()
+    res.send(products)
 
 }
 
@@ -41,9 +42,9 @@ exports.getAllProducts = async (req,res)=>{
 exports.getAllProductDetails = async (req,res)=>{
     let productsDetails = await ProductModel.findById(req.params.id).populate('category')
     if(!productsDetails){
-        return res.send(400).json({error:"Something went wrong"})
+        return res.status(400).json({error:"Something went wrong"})
     }
-    res.send()
+    res.send(productsDetails)
 } 
 
 //get product by categopry
@@ -53,9 +54,9 @@ exports .getProductByCategory = async (req,res)=>{
         category : req.params.category_id
     }).select('title').select('rating')
     if(!products){
-        return res.send(400).json({error:"Something went wrong"})
+        return res.status(400).json({error:"Something went wrong"})
     }
-    res.send()
+    res.send(products)
     
 }
 
@@ -63,17 +64,24 @@ exports .getProductByCategory = async (req,res)=>{
 
 exports.updateProduct = async(req,res)=>{
     try {
+        if(req.file){
+            fs.unlink(req.body.imageUrl,(error)=>{
+                if(error){
+                    console.log(error)
+                }
+            })
+        }
         let product = await ProductModel.findByIdAndUpdate(req.params.id,{
             title : req.body.title,
             price:req.body.price,
             description:req.body,description,
             category:req.body.category,
-            counting_stock : req.body.counting_stock,
+            count_in_stock : req.body.count_in_stock,
             product_image:req.file?.path
     
         },{new:true})
         if(!product){
-            return res.send(400).json({error:"Something went wrong"})
+            return res.status(400).json({error:"Something went wrong"})
     
         }
         res.send(product)

@@ -24,7 +24,7 @@ exports.productCheck = [
     check('description',"Description is required").notEmpty()
     .isLength({min:20}).withMessage("Description must be more than 20 character"),
 
-    check('countInStock',"count in stock is required")
+    check('count_in_stock',"count in stock is required")
     .isNumeric().withMessage('Count must be in number')
 ]
 

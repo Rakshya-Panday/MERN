@@ -53,7 +53,7 @@ exports.register = async(req,res)=>{
 
     //send verfication link(generate token) in email
      
-    const url = `http://localhost:3000/verifyemail/${token.token}`
+    const url = `http://localhost:3000/verifyEmail/${token.token}`
 
     sendEmail({
         from:"noreply@something.com",
@@ -91,7 +91,7 @@ exports.verfiyUser = async(req,res)=>{
 
         //verify user
         user.isVerfied = true
-        user = await user.save
+        user = await user.save()
         if(!user){
             return res.status(400).json({error:"Failed to verify.Please try again later"})
         }
@@ -132,7 +132,7 @@ exports.resendVerfication = async(req,res)=>{
         return res.status(400).json({error:"Something went wrong"})
     }
 
-    const url = `http://localhost:3000/verfiyemail/${token.token}`
+    const url = `http://localhost:3000/verfiyEmail/${token.token}`
     sendEmail({
         from:"noreply@something.com",
         to:req.body.email,
@@ -298,4 +298,17 @@ exports.checkAdmin= (req,res,next)=>expressjwt.jwt({
         res.status(400).json({error:"Unauthorized access"})
     }
 
-})
+}); 
+
+
+//change user role
+
+exports.changeRole = async(req,res) =>{
+    let user = await UserModel.findByIdAndUpdate(req.params.id,{
+        role:req.body.role
+    },{new:true})
+    if(!user){
+      return res.status(400).json({error:"Something went wrong"})
+    }
+    res.send({message:'User role updated'})
+}

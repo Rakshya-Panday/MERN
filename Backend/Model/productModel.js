@@ -25,7 +25,7 @@ const productSchema = new mongoose.Schema({
         type: ObjectId,
         ref:"CategoryModel"
     },
-    counting_stock:{
+    count_in_stock:{
         type:Number,
         required:true
     }
